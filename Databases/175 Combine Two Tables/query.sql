@@ -16,3 +16,12 @@
 Select Person.firstName, Person.lastName, Address.city, Address.state 
 From Person, Address 
 Left Join Address On Person.personId = Address.personId
+
+-- Also if joining need to explicitly use dot notation to indicate where each column is coming from
+
+--Working version:
+
+--need to use a left join - return all records from left (Person) and records where right matches left
+Select Person.firstName, Person.lastName, Address.city, Address.state 
+From Person
+Left Join Address On Person.personId = Address.personId
