@@ -1,0 +1,13 @@
+-- First Approach:
+
+-- # Write your MySQL query statement below
+-- Select firstName, lastName,
+-- Case 
+--     When Person.personId != Address.personId Then null 
+--     Else city
+-- End As city,
+-- Case 
+--     When Person.personId != Address.personId Then null 
+--     Else state
+-- End As state,
+-- From Person, Address;
