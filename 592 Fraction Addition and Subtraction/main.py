@@ -10,4 +10,7 @@ class Solution:
             x += 3
             continue
         print(result)
+        
+        if result == 0.0: return "0/1"
+        
         return str(Fraction(result))
