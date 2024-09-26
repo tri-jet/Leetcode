@@ -4,5 +4,5 @@ class Solution:
             print(s)
             if s.find(word) != -1:
                 print("found")
-                s.replace(word,"")
+                s = s.replace(word,"",1)
         return len(s)
