@@ -1,16 +1,19 @@
 class Solution:
     def compress(self, chars: List[str]) -> int:
-        s = []
-        current = s[0]
-        s.append(current)
+        current = chars[0]
         currentCount = 1
-        for i in range(1, len(s)):
-            if s[i] == current:
+        for i in range(1, charsLen):
+            if chars[i] == current:
+                chars.pop(i)
                 currentCount += 1
-            if s[i] != current:
-                if currentCount > 1:
-                    s.append(str(currentCount))
-                    currentCount = 1
-                current = s[i]
-                s.append(s[i])
-                
+                # if currentCount > 10:
+            else:
+                current = chars[i]
+                chars.insert(i-1, str(currentCount))
+                currentCount = 1
+        if currentCount > 1:
+            chars.append(str(currentCount))
+        return len(chars)
+
+
+ # excludes if count > 10 + needs to add count if at end 
