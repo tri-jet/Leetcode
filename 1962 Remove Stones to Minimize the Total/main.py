@@ -9,17 +9,13 @@ class Solution:
             piles[i] *= -1
         hq.heapify(piles)
         for x in range(k):
-            print(piles)
             current = hq.heappop(piles)
-            print(f"current before removing: {current}")
             current *= -1
-            current -= math.floor(float(current)/2) 
-            print(current)
+            current -= math.floor(float(current)/2)  # " remove floor(piles[i] / 2) stones from it." - defining part that I missed
             current *= -1
             
             hq.heappush(piles, current)
-            # " remove floor(piles[i] / 2) stones from it." - defining part that I missed
-        print(piles)
+            
         piles = list(piles)
         for y in range(len(piles)):
             piles[y] *= -1
