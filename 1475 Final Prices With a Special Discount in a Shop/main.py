@@ -7,8 +7,8 @@ class Solution:
         # 
         # try brute force first
         for i in range(len(prices)):
-            for j in range(i,len(prices)):
-                if prices[j] < prices[i]:
+            for j in range(i+1,len(prices)):
+                if prices[j] <= prices[i]:
                     prices[i] -= prices[j]
                     break
 
