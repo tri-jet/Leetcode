@@ -2,7 +2,8 @@ class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
         lowest = [] # use monotonic stack for lowest prices
         for i in range(len(prices)-1, -1, -1):
-            print(i)
+            #print(i)
+            #print(f"current: {prices[i]}, lowest: {lowest}")
             if not lowest:
                 lowest.append(prices[i])
                 continue
