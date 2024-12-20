@@ -15,7 +15,7 @@ class Solution:
                         lowest.pop()
                     # now should be empty or lowest top < current
                     lowest.append(prices[i])
-                    if len(lowest) == 2:    # if found one lower than current, use as discount
+                    if len(lowest) >= 2:    # if found one lower than current, use as discount
                         prices[i] -= lowest[-2]
                     continue
         return prices   
