@@ -1,7 +1,7 @@
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
         lowest = [] # use monotonic stack for lowest prices
-        for i in range(len(prices)-1, -1):
+        for i in range(len(prices)-1, -1, -1):
             # if lowest empty (starting at end)
             if not lowest:
                 lowest.append(prices[i])
