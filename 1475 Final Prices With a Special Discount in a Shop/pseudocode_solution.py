@@ -11,7 +11,7 @@ class Solution:
                     lowest.append(prices[i])
                     prices[i] -= lowest[-2] 
                 else:   # if current price < top of lowest
-                    while(lowest and lowest[-1] ):   # find val lower than current or till empty
+                    while(lowest and lowest[-1] > prices[i]):   # find val lower than current or till empty
                         lowest.pop()
                     # now should be empty or lowest top < current
                     lowest.append(prices[i])
