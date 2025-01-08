@@ -6,10 +6,9 @@ class Solution:
     def countPrefixSuffixPairs(self, words: List[str]) -> int:
         count = 0
         for i in range(len(words)):
-            str1 = words[i] # don't need to store as words[i] is O(1)
+            str1 = words[i] # store as need repeated access of this across j loop
             for j in range(i, len(words)):
                 if self.isPrefixAndSuffix(str1, words[j]) and i != j:
                     count += 1
-                    print(f"{str1} and {words[j]}")
 
         return count
