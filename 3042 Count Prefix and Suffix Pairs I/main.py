@@ -2,7 +2,7 @@ class Solution:
     
     def isPrefixAndSuffix(self, str1: str, str2: str) -> bool:
         # can convert to 1 line
-        if str2[0:len(str1)] == str1 and str2[len(str2)-len(str1):] == str1:
+        if str2[0:len(str1)] == str1 and str2[len(str2)-len(str1):] == str1 and str1 != str2:
             return True
         else: return False
 
