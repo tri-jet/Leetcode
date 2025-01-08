@@ -7,7 +7,12 @@ class Solution:
         else: return False
 
     def countPrefixSuffixPairs(self, words: List[str]) -> int:
-        if(self.isPrefixAndSuffix(words[0],words[1])):
-            return 1
-        else: return 0
+        count = 0
+        for i in range(len(words)):
+            str1 = words[i] # don't need to store as words[i] is O(1)
+            for j in range(i, len(words)):
+                if self.isPrefixAndSuffix(str1, words[j]):
+                    count += 1
+
+        return count
     
