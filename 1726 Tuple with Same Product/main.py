@@ -10,15 +10,15 @@ class Solution:
         # ab = dc, ba = dc 
 
         products = {}
-        
+
         for x in nums:
             for y in nums:
                 if x == y:
                     continue
-            if x*y in products:
-                products[x*y] = products[x*y].append(tuple(x,y))
-            else:
-                products[x*y] = [(x,y)]
+                if x*y in products.keys():
+                    products[x*y].append((x,y))
+                else:
+                    products[x*y] = [(x,y)]
         
         print(products)
 
