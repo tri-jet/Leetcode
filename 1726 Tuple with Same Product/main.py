@@ -22,4 +22,13 @@ class Solution:
         
         print(products)
 
-        return 8
+        validABCDCount = 0
+        for x in products.keys():
+            if len(products[x]) >= 4:
+                print(f"product: {x}, list len: {len(products[x])}")
+                validABCDCount += 1
+        
+        print(f"count of valid combs: {validABCDCount}")
+        return validABCDCount * 8
+
+        #return 8
