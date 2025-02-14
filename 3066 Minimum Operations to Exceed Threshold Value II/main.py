@@ -8,7 +8,6 @@ class Solution:
         while(nums[0] < k):
             x = heapq.heappop(nums)
             y = heapq.heappop(nums)
-            # can use heap push pop later
             heapq.heappush(nums, min(x,y)*2 + max(x,y))
             opCount += 1
         return opCount
