@@ -1,16 +1,7 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        # hashMap + need all combs + need 0 
-        # ooh not hashmap - two pointers if sorted + don't need indices
-        nums.sort()
-        triplets = []
-
-        #[-1,0,1,2,-1,-4]
-        #sorted: [-4, -1, -1, 0, 1 , 2]
-        # so looping thru, maybe use binary search on right most values?
-        # # start -4, then look at i+1, (left) and n (right) 
-        # does -4, and -1 + 2 = 0 -> no
-        # if total of L+R > positive of start -> Right--, if smaller -> left ++
+        # Loop through nums, do binary search and using the left and right pointers to find the pair that combines with the starting value to make 0.
+        # Keep moving through nums if multiple solutions for start value, and ensuring move past any duplicate start values 
         
         for i in range(len(nums)):
             if i > 0 and nums[i] == nums[i-1]:
