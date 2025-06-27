@@ -19,10 +19,14 @@ class Solution:
             left = i + 1
             right = len(nums) -1
             while(left < right):
-                if nums[i] + nums[left] + nums[right] == 0:
-                    triplets.append([nums[i],nums[left], nums[right]])
-                    break
-                elif nums[i] + nums[left] + nums[right] > 0:
+                total = nums[i] + nums[left] + nums[right]
+                if total < 0:
+                    left +=1 
+                elif total > 0:
                     right -= 1
-                else: left += 1
+                else:
+                    triplets.append([nums[i],nums[left], nums[right]])
+                    left+= 1
+                    while(nums[left] == nums[left-1] and left < right):
+                        left+= 1
         return triplets 
