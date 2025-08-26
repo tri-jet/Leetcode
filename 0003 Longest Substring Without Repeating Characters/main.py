@@ -11,15 +11,14 @@ class Solution:
             found = {s[start]}
             noDupes = True
             while(noDupes and end < len(s)):
-                print(f"Start: {start}, end: {end}, found= {found}, currently looking at {s[end]}")
                 if s[end] not in found:
                     found.add(s[end])
                     currentLen += 1
                     end += 1
                 else:
-                    print("dupe found")
+                    # dupe found
                     start += 1
                     end = start + 1
-                    maxLen = currentLen if currentLen > maxLen else maxLen
                     noDupes = False
+		maxLen = currentLen if currentLen > maxLen else maxLen
         return maxLen
