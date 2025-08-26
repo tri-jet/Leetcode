@@ -9,10 +9,9 @@ class Solution:
                 letterCount.update({letter:1})
             else: letterCount.update({letter:letterCount.get(letter)+1})
 
-        print(letterCount)
+        # need 3 of letter to remove left and right - loop till each letter has < 3 occurrences
         stringLen = len(s)
         for key in letterCount:
-            print(letterCount[key])
             keyCount = letterCount[key]
             while(keyCount > 2):
                 stringLen -= 2
