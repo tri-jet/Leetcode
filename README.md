@@ -5,6 +5,10 @@ Repository for my Leetcode solutions
 ### Arrays
 
 [1550. Three Consecutive Odds](1550%20Three%20Consecutive%20Odds/main.py)
+
+### Sliding Window
+[3. Longest Substring Without Repeating Characters](0003%20Longest%20Substring%20Without%20Repeating%20Characters/main.py) - 26/8/25
+
 ### Databases
 
 [175. Combine Two Tables](/175%20Combine%20Two%20Tables/query.sql)
