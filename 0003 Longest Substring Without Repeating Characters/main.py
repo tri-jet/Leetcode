@@ -6,7 +6,7 @@ class Solution:
         if len(s) == 1 or len(s) == 0:
             return len(s)
         found = {}
-        while(start < len(s)-1) and end < len(s)):
+        while(start < len(s)-1 and end < len(s)):
             currentLen = 1
             found = {s[start]}
             noDupes = True
