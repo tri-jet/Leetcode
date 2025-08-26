@@ -6,11 +6,11 @@ class Solution:
         if len(s) == 1 or len(s) == 0:
             return len(s)
         found = {}
-        while(start < len(s)-1):
+        while(start < len(s)-1) and end < len(s)):
             currentLen = 1
             found = {s[start]}
             noDupes = True
-            while(noDupes):
+            while(noDupes and end < len(s)):
                 print(f"Start: {start}, end: {end}, found= {found}, currently looking at {s[end]}")
                 if s[end] not in found:
                     found.add(s[end])
@@ -23,6 +23,3 @@ class Solution:
                     maxLen = currentLen if currentLen > maxLen else maxLen
                     noDupes = False
         return maxLen
-
-
-        
