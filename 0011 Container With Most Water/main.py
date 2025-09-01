@@ -1,16 +1,11 @@
 class Solution:
     def maxArea(self, heights: List[int]) -> int:
-
-        # 6 empty bars = 36 ah okay - only in the gaps not above the bars
-
-        # could calc area for any two bars? so it only depends on height and width
-        # so ex1: 7 at h[1] and 6 at h[7] -> 6 * (7-1)
-        # get all pairs and calculate all possible water contained - then use highest (brute force)
+        start, end = 0, len(heights) - 1
         mostWater = 0
-        for i in range(0, len(heights)):
-            for j in range(0, len(heights)):
-                if i == j:
-                    continue
-                currentWater = abs(i-j)*heights[i] if heights[i] < heights[j] else abs(i-j)*heights[j]
-                mostWater = currentWater if currentWater > mostWater else mostWater
+        while(start < end):
+            currentWater = abs(start-end)*heights[start] if heights[start] < heights[end] else abs(start-end)*heights[end]
+            mostWater = currentWater if currentWater > mostWater else mostWater
+            if heights[start] < heights[end]:
+                start += 1
+            else: end -= 1
         return mostWater
