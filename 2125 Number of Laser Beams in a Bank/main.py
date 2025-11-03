@@ -6,12 +6,9 @@ class Solution:
         endRowCount = 0
         totalLasers = 0
         for row in range(1, len(bank)):
-            print(f"firstRow {startRowCount} endRow {endRowCount}")
-            if endRowCount == 0:
-                endRowCount = bank[row].count("1")
-            else:
+            endRowCount = bank[row].count("1")
+            if endRowCount != 0:
                 totalLasers += startRowCount * endRowCount
                 startRowCount = endRowCount
                 endRowCount = 0
-            print(f"end of step: firstRow {startRowCount} endRow {endRowCount}, total {totalLasers}")
         return totalLasers
