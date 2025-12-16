@@ -1,5 +1,10 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
+        if not s:
+            return True
+        if not t:
+            return False
+
         letters = list(s)
         print(letters)
         for letter in t:
