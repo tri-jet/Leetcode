@@ -1,21 +1,22 @@
 class Solution:
     def asteroidCollision(self, asteroids: List[int]) -> List[int]:
-        # what happens if size is 0? - ah isn't possible
-        # spent time figuring out way to check xor of both vars 
-        # ah looking at the examples 1 pass from the left might not work acc
-        asteroidStack = []
-        for x in asteroids:
-            print(asteroidStack)
-            if len(asteroidStack) == 0:
-                asteroidStack.append(x)
+        # go backwards
+        # if going backwards, then if top is pos & current is neg, then might be inflection
+        # if top is negative & current is pos -> collision
+        stack = []
+        for x in range(len(asteroids)-1,-1,-1):
+            if len(stack) == 0:
+                stack.append(asteroids[x])
                 continue
-            if asteroidStack[-1]*x < 0: # if both have diff signs, then result always negative
-                if abs(asteroidStack[-1]) > abs(x):
+            if stack[-1] < 0 and asteroids[x] > 0:
+                if abs(stack[-1]) > abs(asteroids[x]):
                     continue
-                elif abs(asteroidStack[-1]) == abs(x):
+                if abs(stack[-1]) == abs(asteroids[x]):
+                    stack.pop()
                     continue
-                else: 
-                    asteroidStack.pop()
-                    asteroidStack.append(x)
-            else: asteroidStack.append(x)
-        return asteroidStack
+                if abs(stack[-1]) < abs(asteroids[x]):
+                    stack.pop()
+                    stack.append(asteroids[x])
+                    continue
+            stack.append(asteroids[x])
+        return stack[::-1]
