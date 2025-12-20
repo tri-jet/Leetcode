@@ -5,12 +5,11 @@ class Solution:
         if len(strs) == 1:
             return 0
         colCount = 0
-        for x in range(len(strs[0])):
+        for x in range(len(strs[0])): # looping thru cols
             letterAbove = strs[0][x]
-            for y in range(1,len(strs)-1):
-                print(f"col index:{x}, strs index: {y} \n letterAbove: {letterAbove}, current: {strs[y][x]}")
+            for y in range(1,len(strs)): # looping thru each row to check if col not sorted
                 if letterAbove > strs[y][x]:
                     colCount += 1
                     break
-                else: current = strs[y][x]
+                else: letterAbove = strs[y][x]
         return colCount
