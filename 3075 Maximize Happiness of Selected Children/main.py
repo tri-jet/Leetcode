@@ -7,7 +7,7 @@ class Solution:
         picked = 0
         happySum = 0
         while picked < k:
-            happySum += happiness[-1]-picked
+            happySum += happiness[-1]-picked if happiness[-1]-picked > 0 else 0
             happiness.pop()
             picked += 1
         return happySum
