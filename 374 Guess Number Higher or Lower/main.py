@@ -12,7 +12,7 @@ class Solution:
         mid = (low+high)//2
         while(guess(mid) != 0):
             if guess(mid) == 1:
-                low = mid
-            else: high = mid
+                low = mid + 1
+            else: high = mid - 1
             mid = (low+high)//2
         return mid
