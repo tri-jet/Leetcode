@@ -5,6 +5,6 @@ class Solution:
             currentSum = digits[x] + carry
             digits[x] = currentSum % 10
             carry = currentSum // 10
-        if carry == 1:
+        if carry:
             digits = [1] + digits
         return digits
