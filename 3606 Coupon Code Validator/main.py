@@ -24,4 +24,8 @@ class Solution:
                             validPharm.append(code[x])
                         case "restaurant":
                             validRest.append(code[x])
+        validElec.sort()
+        validGroc.sort()
+        validPharm.sort()
+        validRest.sort()
         return validElec + validGroc + validPharm + validRest
