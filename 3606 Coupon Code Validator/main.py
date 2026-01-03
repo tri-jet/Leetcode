@@ -19,7 +19,4 @@ class Solution:
                             validPharm.append(code[x])
                         case "restaurant":
                             validRest.append(code[x])
-        validElec.append(validGroc)
-        validElec.append(validPharm)
-        validElec.append(validRest)
-        return validElec
+        return validElec + validGroc + validPharm + validRest
