@@ -1,6 +1,8 @@
 import math
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
+        if len(nums) == 0:
+            return []
         # basically ranges = consecutive lists
         ranges = []
         start = current = -math.inf
