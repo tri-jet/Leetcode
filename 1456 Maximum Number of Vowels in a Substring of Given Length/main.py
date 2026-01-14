@@ -7,7 +7,7 @@ class Solution:
             #print(f"{s[x-k:x]} - which is x-k: {x-k} to x: {x}")
             current = 0
             for letter in s[x-k:x]:
-                if letter in ['a','e','i','o','u']:
+                if letter in {'a','e','i','o','u'}:
                     current += 1
                 if current == k:
                     return k
