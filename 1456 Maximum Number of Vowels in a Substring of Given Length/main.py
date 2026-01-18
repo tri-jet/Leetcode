@@ -2,22 +2,26 @@ class Solution:
     def maxVowels(self, s: str, k: int) -> int:
         # at least O(n) - need to check every pos to see max count of vowels in window
         # look at every k letters and count num of vowels - can only range from 0 to k. So if found k then return no point finding more
-        count = 0
-        for x in range(k, len(s)+1):
-            #print(f"{s[x-k:x]} - which is x-k: {x-k} to x: {x}")
-            current = 0
-            for letter in s[x-k:x]:
-                if letter in {'a','e','i','o','u'}:
-                    current += 1
-                if current == k:
-                    return k
-                #print(f"letter: {letter}, current: {current}")
-            #print(f"ending search of {s[x-k:x]}, current was {current}, count previously {count}")
-            count = current if current > count else count
+        # so now count number of vowels in 0 to k first. Then for k to len(s) +1, check if the x-k was a vowel, and if the new last val is
+        
+        # count number of vowels in initial 0 to k.
+        currentCount = 0
+        for letter in s[0:k]:
+            if letter in {'a','e','i','o','u'}:
+                currentCount += 1
+        if currentCount == k:
+            return k
+        maxCount = currentCount
+        for x in range(k, len(s)):
+            print(f"{s[x-k:x]}, old first = {s[k-x-1]}, new last = {s[x]}")
+            # get old first val, and now last val i.e. left and right of window and compare
+            if s[x-k-1] in {'a','e','i','o','u'} and s[x] not in {'a','e','i','o','u'}:
+                currentCount -= 1
+            elif s[x-k-1] not in {'a','e','i','o','u'} and s[x] in {'a','e','i','o','u'}:
+                currentCount += 1
+            if currentCount == k:
+                return k
+            maxCount = currentCount if currentCount > maxCount else maxCount
             #print(f"so count now: {count}")
 
-        return count
-
-# so for some reason unable to do last 7 chars of weallloveyou k = 7 i.e. loveyou - i.e. 4
-# len of "weallloveyou" is 12
-# x in range k to len -> so that's 7 to 12. but that's actually 
+        return maxCount
