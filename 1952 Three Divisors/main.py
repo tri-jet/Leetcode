@@ -9,4 +9,4 @@ class Solution:
                 count += 1
             if count > 3:
                 return False
-        return True
+        return count == 3
