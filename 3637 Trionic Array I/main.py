@@ -22,4 +22,6 @@ class Solution:
                     continue
                 elif stage == 3:
                     return False # if increasing again, can't decrease again
+            # strictly increasing/decreasing, so no duplicate contiguous nums
+            else: return False
         return stage == 3
