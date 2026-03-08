@@ -7,11 +7,12 @@ class Solution:
 
         n = len(nums[0])
         for x in range(0, len(nums)):
-            nums[x] = str(bin(int(nums[x]))[2:])
+            nums[x] = str(int(nums[x],2))
         nums = set(nums)
 
         for x in range(0, 2**n):
             if str(x) not in nums:
+
                 prefixCount = n - len(bin(x)[2:])
                 return "0"*prefixCount + bin(x)[2:]
 
