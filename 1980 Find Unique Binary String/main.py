@@ -6,16 +6,17 @@ class Solution:
         # can loop thru 0 to 2^n -1, find first num that exists in remaining set?
 
         n = len(nums[0])
-        print(n)
-        print(2**n)
-        limit = 2**n # n=3 range = 0 to 7, range(a, b) goes from a to b-1 anyways 
-        nums = set(nums)    # check if in = O(1)
-        for x in range(0, limit):
-            print(f"x:{x}, bin={bin(x)[2:]}")
-            if x == 0:
-                if "0"*n not in nums:
-                    return "0"*n
-            elif bin(x)[2:] not in nums:
-                return bin(x)[2:]
+        for x in range(0, len(nums)):
+            nums[x] = str(bin(int(nums[x]))[2:])
+        nums = set(nums)
+
+        for x in range(0, 2**n):
+            if str(x) not in nums:
+                prefixCount = n - len(bin(x)[2:])
+                return "0"*prefixCount + bin(x)[2:]
 
         # 0 won't show as 0b00, or whatever length.
+        # better to convert all nums to base 10 first
+        # then compare 0 to 2^n, then add bin padding
+        # ex1: n = 2, nums = 1, 2. O not in thus return bin(0)
+        # bin(0)[2:] = 0, then prefix w/ 0* n-currentLen
