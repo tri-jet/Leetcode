@@ -1,7 +1,7 @@
 class Fancy:
     fancySeq = []
     def __init__(self):
-        fancySeq = []
+        self.fancySeq = []
 
     def append(self, val: int) -> None:
         self.fancySeq.append(val)
