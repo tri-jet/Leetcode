@@ -4,11 +4,6 @@ class Solution:
         # also not including middle.
         if len(nums) == 1:
                 return 0
-        if len(nums) == 2:
-            if nums[0] == 0:
-                return 1
-            if nums[1] == 0:
-                return 0
         
         leftSum = 0
         rightSum = sum(nums[1:])
