@@ -3,7 +3,6 @@ class Solution:
         startSum = sum(nums[0:k])
         avg = startSum / k
         for x in range(0,len(nums)-k):
-            print(f"x: {x}")
             # sliding window, so drop first, and add new end
             #startSum = nums[0+x:x+k]
             startSum -= nums[x] # remove start
